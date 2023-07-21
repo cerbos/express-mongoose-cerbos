@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/index.ts'",
-    "seed": "ts-node src/seed.ts",
+    "test": "cerbos run --log-level=error --set=storage.disk.directory=./cerbos/policies --set=telemetry.disabled=true -- jest src/**.test.ts --detectOpenHandles",
     "mongo": "docker run --rm --name mongodb -p 27017:27017 mongo:latest"
   },
   "repository": {
@@ -21,7 +21,9 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/http-auth": "^4.1.1",
+    "@types/jest": "^29.5.3",
     "@types/node": "^18.0.0",
+    "@types/supertest": "^2.0.12",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.0"
   },
@@ -32,7 +34,10 @@
     "express-basic-auth": "^1.2.0",
     "http-auth": "^4.1.9",
     "http-auth-connect": "^1.0.5",
+    "jest": "^29.6.1",
     "mongoose": "^7.4.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1"
   }
 }
