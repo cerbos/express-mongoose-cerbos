@@ -58,16 +58,22 @@ The [policy](./cerbos/policies/contact.yaml) expects one of two roles to be set 
 
 These roles are authorized as follows:
 
-| Action   | Role: User                                  | Role: Admin |
-| -------- | ------------------------------------------- | ----------- |
-| `read`   | Only if department is `Sales`               | Y           |
-| `create` | Only if department is `Sales`               | Y           |
-| `update` | Only if they own the contact being accessed | Y           |
-| `delete` | Only if they own the contact being accessed | Y           |
+| Action   | Role: User                                                                                                                                                    | Role: Admin |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `read`   | If they own the contact, the contact is active and the department is `Sales`, or the contact is active, they are in `Marketing` and `marketingOptIn` is true. | Y           |
+| `create` | Only if department is `Sales`                                                                                                                                 | Y           |
+| `update` | Only if they own the contact being accessed                                                                                                                   | Y           |
+| `delete` | Only if they own the contact being accessed                                                                                                                   | Y           |
 
 ## Example Requests
 
 ### Get all contact
+
+As a Admin user => `200 OK`
+
+```
+curl -i http://alice:supersecret@localhost:3000/contacts
+```
 
 As a Sales user => `200 OK`
 
@@ -79,18 +85,4 @@ As a Marketing user => `403 Unauthorized`
 
 ```
 curl -i http://geri:pwd123@localhost:3000/contacts
-```
-
-### Get a contact
-
-As a Sales user => `200 OK`
-
-```
-curl -i http://john:password1234@localhost:3000/contacts/1
-```
-
-As a Marketing user => `403 Unauthorized`
-
-```
-curl -i http://geri:pwd123@localhost:3000/contacts/1
 ```
