@@ -69,19 +69,19 @@ These roles are authorized as follows:
 
 ### Get all contact
 
-As a Admin user => `200 OK`
+As a Admin user => `200 OK` with all contacts
 
 ```
 curl -i http://alice:supersecret@localhost:3000/contacts
 ```
 
-As a Sales user => `200 OK`
+As a Sales user => `200 OK` with filtered results
 
 ```
 curl -i http://john:password1234@localhost:3000/contacts
 ```
 
-As a Marketing user => `403 Unauthorized`
+As a Marketing user => `200 OK` with filtered results
 
 ```
 curl -i http://geri:pwd123@localhost:3000/contacts
