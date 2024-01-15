@@ -28,7 +28,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@cerbos/grpc": "^0.14.0",
+    "@cerbos/grpc": "^0.15.0",
     "@cerbos/orm-mongoose": "^0.1.2",
     "express": "^4.17.3",
     "express-basic-auth": "^1.2.0",
