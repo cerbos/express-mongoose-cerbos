@@ -5,7 +5,7 @@ import { queryPlanToMongoose, PlanKind } from "@cerbos/orm-mongoose";
 import { User, Contact } from "./models";
 
 // Connect to Cerbos
-const cerbos = new GRPC("localhost:3592", { tls: false });
+const cerbos = new GRPC("localhost:3593", { tls: false });
 
 // Setup web server
 const app = express();

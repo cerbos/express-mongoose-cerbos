@@ -19,8 +19,7 @@ npm install
 2. Start up the Cerbos PDP instance docker container. This will be called by the express app to check authorization.
 
 ```bash
-cd cerbos
-./start.sh
+./cerbos/start.sh
 ```
 
 3. Start up Mongo
