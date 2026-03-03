@@ -59,12 +59,11 @@ app.get("/contacts", async (req, res) => {
 
   const queryPlanResult = queryPlanToMongoose({
     queryPlan: contactQueryPlan,
-    // map or function to change field names to match the prisma model
-    fieldNameMapper: {
-      "request.resource.attr.owner": "owner",
-      "request.resource.attr.department": "department",
-      "request.resource.attr.active": "active",
-      "request.resource.attr.marketingOptIn": "marketingOptIn",
+    mapper: {
+      "request.resource.attr.owner": { field: "owner" },
+      "request.resource.attr.department": { field: "department" },
+      "request.resource.attr.active": { field: "active" },
+      "request.resource.attr.marketingOptIn": { field: "marketingOptIn" },
     },
   });
 

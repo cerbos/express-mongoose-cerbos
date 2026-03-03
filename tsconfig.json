@@ -3,7 +3,8 @@
         "sourceMap": true,
         "outDir": "dist",
         "strict": true,
-        "moduleResolution": "Node16",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
         "lib": [
             "esnext"
         ],
