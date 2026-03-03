@@ -12,20 +12,20 @@ jobs:
         node-version: ["18"]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Setup Cerbos
-        uses: cerbos/cerbos-setup-action@v1
+        uses: cerbos/cerbos-setup-action@b274a84d6ae5e672afeabda2b713ad91f0235da6 # v1
         with:
           version: ${{ matrix.cerbos-version }}
 
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.12.0
+        uses: supercharge/mongodb-github-action@90004df786821b6308fb02299e5835d0dae05d0d # 1.12.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: Test using Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
           node-version: ${{ matrix.node-version }}
 
