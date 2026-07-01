@@ -2,7 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import { GRPC } from "@cerbos/grpc";
 import basicAuth from "express-basic-auth";
 import { queryPlanToMongoose, PlanKind } from "@cerbos/orm-mongoose";
-import { User, Contact } from "./models";
+import { User, Contact } from "./models.js";
 
 // Connect to Cerbos
 const cerbos = new GRPC("localhost:3593", { tls: false });

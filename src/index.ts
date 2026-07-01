@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { app } from "./server";
-import { seedData } from "./seed";
+import { app } from "./server.js";
+import { seedData } from "./seed.js";
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/test");
