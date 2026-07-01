@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IUser, IContact, User, Contact } from "./models";
+import { IUser, IContact, User, Contact } from "./models.js";
 
 export const users: IUser[] = [
   {
@@ -81,10 +81,8 @@ export const contacts: IContact[] = [
 ];
 
 export async function seedData() {
-  await User.collection.deleteMany({}).then(() => {
-    User.collection.insertMany(users);
-  });
-  await Contact.collection.deleteMany({}).then(() => {
-    Contact.collection.insertMany(contacts);
-  });
+  await User.collection.deleteMany({});
+  await User.collection.insertMany(users);
+  await Contact.collection.deleteMany({});
+  await Contact.collection.insertMany(contacts);
 }

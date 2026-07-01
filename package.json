@@ -2,10 +2,11 @@
   "name": "express-mongoose-cerbos",
   "description": "",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/index.ts'",
-    "test": "cerbos run --log-level=error --set=storage.disk.directory=./cerbos/policies --set=telemetry.disabled=true -- jest src/**.test.ts --detectOpenHandles",
+    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'node --loader ts-node/esm src/index.ts'",
+    "test": "cerbos run --log-level=error --set=storage.disk.directory=./cerbos/policies --set=telemetry.disabled=true -- node --experimental-vm-modules node_modules/jest/bin/jest.js src/**.test.ts --detectOpenHandles",
     "mongo": "docker run --rm --name mongodb -p 27017:27017 mongo:latest"
   },
   "repository": {
@@ -19,25 +20,25 @@
   },
   "homepage": "https://github.com/cerbos/express-mongoose-cerbos#readme",
   "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/http-auth": "^4.1.1",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^24.0.0",
-    "@types/supertest": "^6.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.0"
+    "@types/express": "^5.0.6",
+    "@types/http-auth": "^4.1.4",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.0.1",
+    "@types/supertest": "^7.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@cerbos/grpc": "^0.23.0",
-    "@cerbos/orm-mongoose": "^2.0.0",
-    "express": "^4.17.3",
-    "express-basic-auth": "^1.2.0",
-    "http-auth": "^4.1.9",
-    "http-auth-connect": "^1.0.5",
-    "jest": "^29.6.1",
-    "mongoose": "^9.0.0",
-    "nodemon": "^3.0.0",
-    "supertest": "^7.0.0",
-    "ts-jest": "^29.1.1"
+    "@cerbos/grpc": "^0.27.1",
+    "@cerbos/orm-mongoose": "^2.1.0",
+    "express": "^5.2.1",
+    "express-basic-auth": "^1.2.1",
+    "http-auth": "^4.2.1",
+    "http-auth-connect": "^1.0.6",
+    "jest": "^30.4.2",
+    "mongoose": "^9.7.3",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.11"
   }
 }
