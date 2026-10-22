@@ -11,8 +11,7 @@
             "esnext"
         ],
         "types": [
-            "node",
-            "jest"
+            "node"
         ],
         "esModuleInterop": true
     },
