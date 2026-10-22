@@ -9,9 +9,6 @@ jobs:
       matrix:
         cerbos-version: ["latest"]
         mongodb-version: ["6.0", "7.0"]
-        # Jest's require(ESM) — needed to load the ESM-only @cerbos/* packages
-        # under --experimental-vm-modules — requires Node's synchronous vm module
-        # APIs, available only on Node >= 24.9.
         node-version: ["24"]
     runs-on: ubuntu-latest
     steps:
