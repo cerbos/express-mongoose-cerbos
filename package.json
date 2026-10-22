@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'node --loader ts-node/esm src/index.ts'",
+    "dev": "tsx watch src/index.ts",
     "test": "cerbos run --log-level=error --set=storage.disk.directory=./cerbos/policies --set=telemetry.disabled=true -- vitest run",
     "mongo": "docker run --rm --name mongodb -p 27017:27017 mongo:latest"
   },
@@ -24,8 +24,8 @@
     "@types/http-auth": "^4.1.4",
     "@types/node": "^26.0.1",
     "@types/supertest": "^7.2.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
     "vitest": "^5.0.5"
   },
   "dependencies": {
@@ -36,7 +36,6 @@
     "http-auth": "^4.2.1",
     "http-auth-connect": "^1.0.6",
     "mongoose": "^9.7.3",
-    "nodemon": "^3.1.14",
     "supertest": "^7.2.2"
   }
 }
