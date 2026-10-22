@@ -1,8 +1,8 @@
 import request from "supertest";
-import { app } from "./server";
+import { app } from "./server.js";
 import mongoose from "mongoose";
-import { seedData } from "./seed";
-import { IContact } from "./models";
+import { seedData } from "./seed.js";
+import { IContact } from "./models.js";
 
 beforeAll(async () => {
   await mongoose.connect("mongodb://127.0.0.1:27017/test");

@@ -8,14 +8,17 @@ jobs:
     strategy:
       matrix:
         cerbos-version: ["latest"]
-        mongodb-version: ["5.0", "6.0"]
-        node-version: ["18"]
+        mongodb-version: ["6.0", "7.0"]
+        # Jest's require(ESM) — needed to load the ESM-only @cerbos/* packages
+        # under --experimental-vm-modules — requires Node's synchronous vm module
+        # APIs, available only on Node >= 24.9.
+        node-version: ["24"]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Setup Cerbos
-        uses: cerbos/cerbos-setup-action@b274a84d6ae5e672afeabda2b713ad91f0235da6 # v1
+        uses: cerbos/cerbos-setup-action@d1418d9ea5db17f419a48e992edff39b01bd0756 # v1
         with:
           version: ${{ matrix.cerbos-version }}
 
@@ -25,7 +28,7 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: Test using Node.js
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: ${{ matrix.node-version }}
 
