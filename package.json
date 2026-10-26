@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@cerbos/grpc": "^0.29.0",
-    "@cerbos/orm-mongoose": "^2.1.0",
+    "@cerbos/orm-mongoose": "^3.0.0",
     "express": "^5.2.1",
     "express-basic-auth": "^1.2.1",
     "http-auth": "^4.2.1",
